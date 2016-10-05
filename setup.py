@@ -13,7 +13,7 @@ with open(os.path.join(ROOT, 'butterfly', '__init__.py')) as fd:
     __version__ = re.search("__version__ = '([^']+)'", fd.read()).group(1)
 
 options = dict(
-    name="butterfly",
+    name="butterfly-latest",
     version=__version__,
     description="A sleek web based terminal emulator",
     long_description="See http://github.com/paradoxxxzero/butterfly",
