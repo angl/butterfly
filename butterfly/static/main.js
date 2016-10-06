@@ -27,16 +27,12 @@
         return ws.send('R' + params);
       }
     };
-    if (location.protocol === 'https:') {
-      wsUrl = 'wss://';
-    } else {
-      wsUrl = 'ws://';
-    }
+    wsUrl = 'ws://';
     root_path = document.body.getAttribute('data-root-path');
     if (root_path.length) {
       root_path = "/" + root_path;
     }
-    wsUrl += document.location.host + root_path + '/ws' + location.pathname;
+    wsUrl += document.location.host + root_path + '/ws';
     ws = new WebSocket(wsUrl);
     ws.addEventListener('open', function() {
       console.log("WebSocket open", arguments);
