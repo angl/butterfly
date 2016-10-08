@@ -297,6 +297,9 @@ class TermWebSocket(Route, tornado.websocket.WebSocketHandler):
                     for user, sessions in TermWebSocket.terminals.items()])):
             sys.exit(0)
 
+    def check_origin(self, origin):
+        return True # XXX temporarily disable cross-origin check
+
 
 @url(r'/sessions/list.json')
 class SessionsList(Route):
