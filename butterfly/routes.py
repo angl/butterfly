@@ -138,17 +138,6 @@ class TermWebSocket(Route, tornado.websocket.WebSocketHandler):
         self.closed = False
         self.secure_user = None
 
-        # Prevent cross domain
-        if self.request.headers['Origin'] not in (
-                'http://%s' % self.request.headers['Host'],
-                'https://%s' % self.request.headers['Host']):
-            self.log.warning(
-                'Unauthorized connection attempt: from : %s to: %s' % (
-                    self.request.headers['Origin'],
-                    self.request.headers['Host']))
-            self.close()
-            return
-
         TermWebSocket.sockets.append(self)
 
         self.log.info('Websocket opened %r' % self)
